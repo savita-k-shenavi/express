@@ -2,6 +2,9 @@ const Note = require('../models/model.js');
 
 // Create and Save a new Note
 exports.create = (req, res) => {
+
+    console.log(req.body);
+    
     // Validate request
     if (!req.body.content) {
         return res.status(400).send({
@@ -15,7 +18,7 @@ exports.create = (req, res) => {
         content: req.body.content
     });
 
-    // Save Note in the database
+   // Save Note in the database
     note.save()
         .then(data => {
             res.send(data);
